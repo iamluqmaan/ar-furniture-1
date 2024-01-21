@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap');
+body
+{
+
+    background-color: #EDEDED;
+    font-family: 'Antic Didone', sans-serif;
+    font-weight: 600;
+}
+
+.header
+{
+    display: flex;
+    flex-direction: row;
+}
+.logo
+{
+  flex:1;
+}
+.logo img
+{
+    width: 150px;
+    height: 150px;
+}
+
+
+.profile
+{
+  margin-top:50px;
+  margin-right:10px ;
+}
+
+
+.search-filter img
+{
+    margin-left: 15px;
+    
+}
+  
+
+.tags
+{
+    margin-top:30px ;
+    margin-left:20px ;
+    display: grid;
+    grid-template-columns:100px 100px 100px  100px 100px;
+    gap: 30px;
+    overflow: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+
+}
+.tags::-webkit-scrollbar {
+    width: 1px;
+  }
+  
+  .tags::-webkit-scrollbar-thumb {
+    background-color: transparent; /* hide scrollbar, but keep functionality */
+  }
+  
+  .tags::-webkit-scrollbar-track {
+    background-color: transparent; /* hide scrollbar, but keep functionality */
+  }
+  
+button
+{
+    font-family: 'Antic Didone', sans-serif;
+    font-weight: 600;
+    background-color: #D9D9D9;
+    border:solid 0px #D9D9D9;
+    border-radius: 15px;
+    height: 30px;
+
+}
+
+  .furniture {
+    display: flex;
+    flex-direction: column;
+
+  }
+  
+  .furniture-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .furniture-info {
+    border-radius: 5%;
+    background-color: #D9D9D9;
+    position: relative;
+    margin-bottom:50px ;
+
+  }
+  
+  .search-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .furniture-info img {
+    width: 200px;
+    border-radius: 5%;
+  }
+  h1
+  {
+    background-image: linear-gradient( #e916d7, #4207f3,#950cf0);
+    color: transparent;
+    background-clip: text;
+  }
+  .basic-desc
+  {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .price-desc
+  {
+    display: flex;
+    flex-direction: row;
+    margin-bottom:0px ;
+  }
+
+.furniture-desc
+{
+    flex:1;
+    margin-right: 5px ;
+}
+
+
+
+
+  .ar-3d {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .controls
+  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .back-btn
+  {
+    margin-right:50px ;
+    height: 60px;
+    width: 70px;
+    font-size: medium;
+    padding: 1px;
+  }
+  .controls a
+  {
+    text-decoration: none;
+  }
+  .view-ar
+  {
+    margin-left:20px ;
+    height: 60px;
+    width: 90px;
+    font-size: 15px;
+  }
+@media only screen 
+and (min-width: 1024px) 
+and (max-width: 1486px) 
+
+{
+  .tags button
+  {
+    width: 150px;
+    font-size: 22px;
+    height: 50px;
+    padding: 5px;
+  }
+  .tags
+  {
+    justify-content: center;
+    grid-template-columns: 150px 150px 150px 150px 150px;
+  }
+  .ornament-head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px; 
+  }
+  .profile
+  {
+    margin-top:100px;
+    margin-right:20px ;
+  }
+  .ornament-head h1 {
+    margin: 0; 
+    font-size: 52px;
+    margin-top:10px ;
+  }
+  .furniture-logo 
+  {
+    margin-left:50px ;
+  }
+  .furniture-logo img
+  {
+    height: 270px;
+    width: 200px;
+  }
+  .back-btn
+  {
+    width: 200px;
+    height: 100px;
+  }
+  .furniture-info
+  {
+    height: 530px;
+    width: 300px;
+  }
+  h2
+  {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  p{
+    font-size: 23px;
+  }
+  .logo img
+{
+    width: 250px;
+    height: 250px;
+}
+  .controls a
+  {
+    font-size: 30px;
+
+  }
+  canvas
+  {
+    width: 100%;
+  }
+}
+
+  @media (max-width: 768px) {
+    .furniture-info {
+      flex-direction: column; 
+      width: 90%;
+      margin-bottom:50px ;
+    }
+    .furniture
+    {
+        align-items: center;
+    }
+    .furniture-info img {
+      width: 100%; 
+      
+    }
+  
+    .furniture-head {
+      flex-direction: column; 
+      align-items: center;
+    }
+  }
+  @media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .search-filter img
+    {
+        width: 600px;
+    }
+}
+  
