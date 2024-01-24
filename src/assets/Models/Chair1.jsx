@@ -3,17 +3,23 @@
 import  { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useCharacterAnimations } from "../../contexts/ModelControl";
-import { Vector3 } from 'three';
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF('/model/chair1.glb')
   const {  Color } = useCharacterAnimations();
-  const {  Rotate } = useCharacterAnimations();
-  
-  
+  let scl=[2,2,2]
+  let rots=[0,0,0]
+  let pos=[0,-1.3,0]
+  if(props.chair)
+  {
+    rots=props.rotation;
+    scl=props.scale
+    pos=props.position
+    console.log(scl)
+  }
   const group=useRef();
   return (
-    <group ref={group} rotation={[0,Rotate.x,0]}  scale={[1.3,1.3,1.3]} position={props.position} dispose={null}>
+    <group ref={group} rotation={rots}  scale={scl} position={pos} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <mesh geometry={nodes.Object_6.geometry} material={materials.Foregrou} 
          material-color={Color}

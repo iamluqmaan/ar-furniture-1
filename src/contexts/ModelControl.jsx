@@ -5,15 +5,8 @@ import { Vector3 } from "three";
 const CharacterAnimationsContext = createContext({});
 
 export const CharacterAnimationsProvider = (props) => {
-  const rotateOptions = useMemo(() => {
-    return {
-      x: { value: 0, min: 0, max: Math.PI * 2, step: 0.01 },
-    };
-  }, []);
 
-  const Rotate = useControls("Rotate", {
-    x: rotateOptions.x,
-  });
+  
   
   const { Color, Model } = useControls({
     Color: "#ffffff",
@@ -40,7 +33,7 @@ export const CharacterAnimationsProvider = (props) => {
         setCurrentModelName,
         Color,
        
-        Rotate: new Vector3( Rotate.x, 0,0),
+       
         
       }}
     >

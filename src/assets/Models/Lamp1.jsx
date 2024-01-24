@@ -10,12 +10,19 @@ import { useCharacterAnimations } from "../../contexts/ModelControl";
 export default function Model(props) {
   const group=useRef();
   const {  Color } = useCharacterAnimations();
-  const {  Rotate } = useCharacterAnimations();
-
+  let scl=[3,3,3]
+  let rots=[0,0,0]
+  let pos=[0,-1.3,0]
+  if(props.lamp1)
+  {
+    rots=props.rotation;
+    scl=props.scale
+    pos=props.position
+  }
   const { nodes, materials } = useGLTF('/model/lamp1.glb')
   return (
-    <group ref={group} {...props} rotation={[0,Rotate.x,0]} scale={[0.5,0.5,0.5]} dispose={null}>
-      <group scale={5}>
+    <group ref={group} {...props} position={pos} rotation={rots} scale={scl} dispose={null}>
+      <group >
         <mesh geometry={nodes.light.geometry} material={materials.Lamp} />
         <mesh geometry={nodes.Table_Lamp_fabric.geometry} material={materials.Fabric} />
         <mesh geometry={nodes.Table_Lamp_fabric_rim.geometry} material={materials['Old White Metal']} />

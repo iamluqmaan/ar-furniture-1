@@ -33,6 +33,7 @@ body
 {
   background-color: #010102 !important;
   color: white !important;
+  position: absolute !important;
 }
 
 .search-filter img

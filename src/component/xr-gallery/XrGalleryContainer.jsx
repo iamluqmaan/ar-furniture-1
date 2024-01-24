@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { ARButton, XR } from "@react-three/xr";
+import { ARButton, XR,useXR } from "@react-three/xr";
 import { useCallback, useState } from "react";
 import { CharacterAnimationsProvider } from "../../contexts/ModelControl";
 import XrGallery from "./XrGallery";
@@ -8,13 +8,11 @@ import Interface from "./Interface";
 
 const XrGalleryContainer = (props) => {
   const [overlayContent, setOverlayContent] = useState(null);
-  
   let interfaceRef = useCallback((node) => {
     if (node !== null) {
       setOverlayContent(node);
     }
   });
-
   
 
   return (
@@ -34,7 +32,7 @@ const XrGalleryContainer = (props) => {
         </XR>
         <Environment preset="sunset" />
       </Canvas>
-      <Interface ref={interfaceRef} />
+      <Interface arMode={true} ref={interfaceRef} />
     </CharacterAnimationsProvider>
   );
 };
