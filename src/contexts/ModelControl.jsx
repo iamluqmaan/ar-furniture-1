@@ -1,15 +1,24 @@
 import { useControls } from "leva";
-import { createContext, useContext, useState, useMemo } from "react";
-import { Vector3 } from "three";
+import { createContext, useContext, useState } from "react";
 
 const CharacterAnimationsContext = createContext({});
 
 export const CharacterAnimationsProvider = (props) => {
 
-  
+  const [IsDrag,SetDrag]=useState(false);
   
   const { Color, Model } = useControls({
-    Color: "#ffffff",
+    Color: {
+      options:{
+        "White":"#ffffff",
+        "Blue":"#0B60B0",
+        "Green":"#65B741",
+        "Orange":"#EE7214",
+      },
+      onChange:(Val)=>{
+        setCurrentColor(Val)
+      },
+    },
     Model: {
       options: {
         "Chair 1": "chair1",
@@ -25,6 +34,7 @@ export const CharacterAnimationsProvider = (props) => {
   });
 
   const [currentModelName, setCurrentModelName] = useState(Model);
+  const [currentColor, setCurrentColor] = useState(Model);
 
   return (
     <CharacterAnimationsContext.Provider
@@ -32,7 +42,10 @@ export const CharacterAnimationsProvider = (props) => {
         currentModelName,
         setCurrentModelName,
         Color,
-       
+        IsDrag,
+        SetDrag,
+        currentColor,
+        setCurrentColor,
        
         
       }}

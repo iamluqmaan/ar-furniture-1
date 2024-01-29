@@ -13,12 +13,12 @@ export default function Model(props) {
     pos=props.position
   }
   const group=useRef();
-  const {  Color } = useCharacterAnimations();
+  const {  currentColor } = useCharacterAnimations();
   const { nodes, materials } = useGLTF('/model/table2.glb')
   return (
     <group ref={group} position={pos} scale={scl} rotation={rots} {...props} dispose={null}>
       <mesh geometry={nodes.Coffee_table.geometry} material={materials.Материал} rotation={[0, 0, 0]} 
-        material-color={Color}
+        material-color={currentColor}
       />
     </group>
   )

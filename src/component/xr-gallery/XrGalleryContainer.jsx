@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { ARButton, XR,useXR } from "@react-three/xr";
+import { ARButton, XR } from "@react-three/xr";
 import { useCallback, useState } from "react";
 import { CharacterAnimationsProvider } from "../../contexts/ModelControl";
 import XrGallery from "./XrGallery";
@@ -7,6 +7,7 @@ import { Environment } from "@react-three/drei";
 import Interface from "./Interface";
 
 const XrGalleryContainer = (props) => {
+  
   const [overlayContent, setOverlayContent] = useState(null);
   let interfaceRef = useCallback((node) => {
     if (node !== null) {
@@ -17,14 +18,16 @@ const XrGalleryContainer = (props) => {
 
   return (
     <CharacterAnimationsProvider>
+    <Interface colapsed={close} arMode={true} ref={interfaceRef} />
       <ARButton
         className="ar-button"
         sessionInit={{
           requiredFeatures: ["hit-test"],
-          optionalFeatures: ["dom-overlay"],
+          optionalFeatures: ["dom-overlay","local-floor","plane-detection"],
           domOverlay: { root: overlayContent },
         }}
       />
+      
       <Canvas>
         <ambientLight intensity={0.7} />
         <XR>
@@ -32,7 +35,6 @@ const XrGalleryContainer = (props) => {
         </XR>
         <Environment preset="sunset" />
       </Canvas>
-      <Interface arMode={true} ref={interfaceRef} />
     </CharacterAnimationsProvider>
   );
 };

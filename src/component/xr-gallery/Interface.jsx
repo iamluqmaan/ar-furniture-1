@@ -1,24 +1,26 @@
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import { Leva } from "leva";
 
 const Interface = forwardRef((props, ref) => {
-  const titleBarPosition = props.arMode
-    ? { x: 0, y: 0 } // Set position when arMode is true
-    : { x: -50, y: 450 }; // Set default position
+  
+
+ 
 
   return (
-    <div ref={ref} style={{ position: "absolute", top: 0, left: 0 }}>
+    <div
+      
+      ref={ref}
+      style={{ position: "absolute", top: 0, left: 0 }}
+    >
       <Leva
         style={{
           position: "absolute",
-          top: "50%",
-          left: "50%",
-          zIndex: "200000",
-          transform: "translate(-50%, -50%)",
+          zIndex: "1000",
         }}
         collapsed
         titleBar={{
-          position: titleBarPosition,
+          
+          drag:false,
         }}
       />
     </div>

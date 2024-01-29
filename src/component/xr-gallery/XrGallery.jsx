@@ -15,7 +15,6 @@ const XrOverlay = (props) => {
   const [models, setModels] = useState([]);
   const { currentModelName, setCurrentModelName } = useCharacterAnimations();
   const { isPresenting } = useXR();
-
   const prevIsPresentingRef = useRef(null);
 
   useEffect(() => {
@@ -25,8 +24,8 @@ const XrOverlay = (props) => {
 
     prevIsPresentingRef.current = isPresenting;
   }, [isPresenting]);
-
-  const [rotation, setRotation] = useState([0, 0, 0]);
+  
+  let [rotation, setRotation] = useState([0, 0, 0]);
   const [zoom, setZoom] = useState(1);
   
   useEffect(() => {
@@ -57,19 +56,22 @@ const XrOverlay = (props) => {
     setModels([{ position, id }]);
   };
 
-  // Gesture handling for rotation and zoom
+
   const bind = useGesture(
     {
-      onPinch: ({ delta }) => {
+      
+      onPinch: ({ delta  }) => {
+        
         setZoom((prevZoom) => Math.max(0.1, prevZoom + delta[0]*10 ));
+      
       },
       onDrag: ({ pinching, cancel,offset }) => {
         if (pinching) return cancel()
-        const sensitivity = 0.001; 
+        const sensitivity = 0.015; 
         const rotationY = offset[0] * sensitivity;
         setRotation((prevRotation) => [
           prevRotation[0],
-          prevRotation[1] + (offset[0] - prevRotation[1] < 0 ? -rotationY : rotationY),
+          prevRotation[1] + (rotationY),
           prevRotation[2],
         ]);
       },

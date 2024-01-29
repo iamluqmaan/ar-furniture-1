@@ -19,12 +19,12 @@ export default function Model(props) {
   }
   const { nodes, materials } = useGLTF('/model/sofa1.glb')
   const group=useRef();
-  const {  Color } = useCharacterAnimations();
+  const {  currentColor } = useCharacterAnimations();
   return (
     <group ref={group} scale={scl} rotation={rots} position={pos} dispose={null}>
       <mesh geometry={nodes.Foot.geometry} material={materials.Black} position={[-0.38, 0.044, -1.551]} />
       <mesh geometry={nodes.pillow4.geometry} material={materials.Sofa_Fabric} position={[0.095, 0.581, 0.816]} rotation={[-3.102, 0.977, -1.177]} 
-        material-color={Color}
+        material-color={currentColor}
       />
       <mesh geometry={nodes.Sofa.geometry} material={materials.Sofa_Fabric} position={[-0.141, 0.14, -1.094]} />
       <mesh geometry={nodes.sofa_back.geometry} material={materials.Sofa_Fabric} position={[-0.141, 0.14, -1.094]} />

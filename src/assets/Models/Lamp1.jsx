@@ -9,7 +9,7 @@ import { useCharacterAnimations } from "../../contexts/ModelControl";
 
 export default function Model(props) {
   const group=useRef();
-  const {  Color } = useCharacterAnimations();
+  const {  currentColor } = useCharacterAnimations();
   let scl=[3,3,3]
   let rots=[0,0,0]
   let pos=[0,-1.3,0]
@@ -27,7 +27,7 @@ export default function Model(props) {
         <mesh geometry={nodes.Table_Lamp_fabric.geometry} material={materials.Fabric} />
         <mesh geometry={nodes.Table_Lamp_fabric_rim.geometry} material={materials['Old White Metal']} />
         <mesh geometry={nodes.Cylinder001.geometry} material={materials.Porcelain} 
-          material-color={Color}
+          material-color={currentColor}
         />
         <mesh geometry={nodes.Cylinder001_1.geometry} material={materials['Porcelain Blue']} />
       </group>
