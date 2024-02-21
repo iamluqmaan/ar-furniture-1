@@ -63,7 +63,7 @@ const Home = () => {
             <div className="Furniture">
                 <div className="ornament-head">
                     <div>
-                    <h1>{All ? 'All' : chair ? 'Chairs' : table?'Table':lamp?'Lamp':'Sofas'}</h1>
+                    <h1>{All ? 'All' : chair ? 'Chairs' : table?'Tables':lamp?'Lamps':'Sofas'}</h1>
                     </div>
                 </div>
                 {All && 

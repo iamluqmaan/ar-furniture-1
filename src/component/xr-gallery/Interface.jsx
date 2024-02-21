@@ -1,16 +1,15 @@
-import { forwardRef, useState } from "react";
+import { forwardRef } from "react";
 import { Leva } from "leva";
 
 const Interface = forwardRef((props, ref) => {
-  
+  const titleBarPosition = { x: -50, y: 0 }
 
- 
 
   return (
     <div
-      
+
       ref={ref}
-      style={{ position: "absolute", top: 0, left: 0 }}
+      style={{ position: "absolute", top: 0, left: 0, touchAction: "none" }}
     >
       <Leva
         style={{
@@ -18,9 +17,10 @@ const Interface = forwardRef((props, ref) => {
           zIndex: "1000",
         }}
         collapsed
+
         titleBar={{
-          
-          drag:false,
+          position: titleBarPosition,
+          drag: false,
         }}
       />
     </div>

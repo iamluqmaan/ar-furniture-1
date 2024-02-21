@@ -10,6 +10,16 @@ export const chairs = [
       
 
     },
+    {
+      id: 2,
+      name:'Chair 2',
+      desc:'Office Chair',
+      price:'$12',
+      image: '/images/chair2.png',  
+      link3D: '/chair2',
+      
+
+    },
     
    
   ];
@@ -44,6 +54,15 @@ export const chairs = [
       link3D: '/sofa1',
 
     },
+    {
+      id: 2,
+      desc:'Single Sofa',
+      name:'Sofa 2',
+      price:'$10',
+      image: '/images/sofa2.png',  
+      link3D: '/sofa2',
+
+    },
     
     
   ];
@@ -55,6 +74,15 @@ export const chairs = [
       price:'$1',
       image: '/images/lamp1.png',  
       link3D: '/lamp1',
+
+    },
+    {
+      id: 2,
+      desc:'Laval Lamp',
+      name:'Lamp 2',
+      price:'$10',
+      image: '/images/lamp2.png',  
+      link3D: '/lamp2',
 
     },
     

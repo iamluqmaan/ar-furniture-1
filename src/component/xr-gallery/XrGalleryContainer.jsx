@@ -17,18 +17,18 @@ const XrGalleryContainer = (props) => {
   
 
   return (
-    <CharacterAnimationsProvider>
+    <CharacterAnimationsProvider Model={props.comp}>
     <Interface colapsed={close} arMode={true} ref={interfaceRef} />
       <ARButton
         className="ar-button"
         sessionInit={{
           requiredFeatures: ["hit-test"],
-          optionalFeatures: ["dom-overlay","local-floor","plane-detection"],
+          optionalFeatures: ["dom-overlay","bounded-floor","plane-detection"],
           domOverlay: { root: overlayContent },
         }}
       />
       
-      <Canvas>
+      <Canvas style={{touchAction:"none"}}>
         <ambientLight intensity={0.7} />
         <XR>
           <XrGallery Model={props.comp} />
