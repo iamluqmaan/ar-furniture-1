@@ -12,14 +12,16 @@ import Table1 from '../../assets/Models/Table1'
 import Table2 from '../../assets/Models/Table2'
 import { useCharacterAnimations } from '../../contexts/ModelControl'
 import { useGesture } from '@use-gesture/react'
+import Model from "../../assets/Models/Table2";
 
-const XrOverlay = (props) => {
+const XrOverlay = () => {
   const reticleRef = useRef();
+  const [isModelPresent,SetModelPresent]=useState(false);
+  const [CurrentDrag,SetCurrentDrag]=useState(0);
   const [models, setModels] = useState([]);
   const { currentModelName } = useCharacterAnimations();
   const { isPresenting } = useXR();
   const prevIsPresentingRef = useRef(null);
-  const [isCanvasClicked, setIsCanvasClicked] = useState(false);
   useEffect(() => {
     if (prevIsPresentingRef.current && !isPresenting) {
       window.location.reload();
@@ -55,6 +57,23 @@ const XrOverlay = (props) => {
     let id = Date.now();
     setModels([{ position, id }]);
   };
+  // const takesnap = () => {
+  //   const canvas = document.querySelector('canvas');
+    
+  //   if (!canvas) return;
+  
+  //   // Introduce a slight delay before capturing the canvas content
+  //   setTimeout(() => {
+  //     requestAnimationFrame(() => {
+  //       const img = canvas.toDataURL("image/jpeg");
+  //       const a = document.createElement("a");
+  //       a.href = img;
+  //       a.download = "cavas.jpeg";
+  //       a.click();
+  //     });
+  //   }, 100); // Adjust the delay as needed
+  // };
+  
 
   const bind = useGesture(
     {
@@ -63,18 +82,33 @@ const XrOverlay = (props) => {
       },
       onDrag: ({ pinching, cancel, offset }) => {
         if (pinching) return cancel();
-        const sensitivity = 0.005;
+        const sensitivity = 0.01;
         const diffOffset = offset[0] - prevOffsetRef.current;
-        if (Math.abs(diffOffset) > 0.001) { // Check if the offset has changed significantly
-          const rotationY = Math.abs(diffOffset) * sensitivity; 
+        if (Math.abs(diffOffset) > 0.001) {
+          const rotationY = Math.abs(diffOffset) * sensitivity;
           setRotation((prevRotation) => [
             prevRotation[0],
-            prevRotation[1] + (diffOffset > 0 ? rotationY : -rotationY), 
+            prevRotation[1] + (diffOffset > 0 ? rotationY : -rotationY),
             prevRotation[2],
           ]);
-          prevOffsetRef.current = offset[0]; 
+          prevOffsetRef.current = offset[0];
         }
+        // const dragValue=Math.abs(offset[1])-CurrentDrag;
+        // if(Math.abs(dragValue)>200 && models.length)
+        // {
+        //   SetCurrentDrag(0);
+        //   takesnap()
+
+        // }
+        // else
+        // {
+        //   SetCurrentDrag(0);
+        // }
+        // console.log("x=", offset[0], "y=", offset[1]);
       },
+      // onTap: ({ event }) => {
+      //   console.log(event)
+      // }
     },
     {
       target: window,

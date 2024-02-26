@@ -5,8 +5,9 @@ const CharacterAnimationsContext = createContext({});
 
 export const CharacterAnimationsProvider = (props) => {
   const [IsDrag, SetDrag] = useState(false);
-  const [currentColor, setCurrentColor] = useState("#ffffff"); 
-  const [currentModelName, setCurrentModelName] = useState(props.Model);
+  const [currentColor, setCurrentColor] = useState("#ffffff");
+  let path = window.location.pathname.substring(1);
+  const [currentModelName, setCurrentModelName] = useState(path);
 
   const { Color } = useControls({
     Color: {
@@ -40,12 +41,12 @@ export const CharacterAnimationsProvider = (props) => {
 
   useEffect(() => {
     setCurrentModelName((prevModelName) => {
-      if (props.Model !== prevModelName) {
-        return props.Model;
+      if (path !== prevModelName) {
+        return path;
       }
       return prevModelName;
     });
-  }, [props.Model]);
+  }, [path]);
 
   return (
     <CharacterAnimationsContext.Provider
