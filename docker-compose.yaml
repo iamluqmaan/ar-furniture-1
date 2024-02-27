@@ -5,4 +5,9 @@ services:
     container_name: furniture_c
     ports:
       - '3000:3000'
+    volumes:
+      - C:\Users\ankur\OneDrive\Desktop\astarix\astarixFurniture:/app
+      - /app/node_modules
+        
+    
     
