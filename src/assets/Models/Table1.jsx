@@ -40,4 +40,4 @@ export default function Model(props) {
   )
 }
 
-useGLTF.preload('/table1.glb')
+useGLTF.preload('/model/table1.glb')

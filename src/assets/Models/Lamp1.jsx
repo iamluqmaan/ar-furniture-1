@@ -10,7 +10,7 @@ import { useCharacterAnimations } from "../../contexts/ModelControl";
 export default function Model(props) {
   const group=useRef();
   const {  currentColor } = useCharacterAnimations();
-  let scl=[3,3,3]
+  let scl=[0.5,0.5,0.5]
   let rots=[0,0,0]
   let pos=[0,-1.3,0]
   if(props.lamp1)
@@ -19,20 +19,15 @@ export default function Model(props) {
     scl=props.scale
     pos=props.position
   }
-  const { nodes, materials } = useGLTF('/model/lamp1.glb')
+  const { nodes, materials } = useGLTF('/model/lamp1-transformed.glb')
   return (
     <group ref={group} {...props} position={pos} rotation={rots} scale={scl} dispose={null}>
-      <group >
-        <mesh geometry={nodes.light.geometry} material={materials.Lamp} />
-        <mesh geometry={nodes.Table_Lamp_fabric.geometry} material={materials.Fabric} />
-        <mesh geometry={nodes.Table_Lamp_fabric_rim.geometry} material={materials['Old White Metal']} />
-        <mesh geometry={nodes.Cylinder001.geometry} material={materials.Porcelain} 
-          material-color={currentColor}
-        />
-        <mesh geometry={nodes.Cylinder001_1.geometry} material={materials['Porcelain Blue']} />
-      </group>
+      <mesh geometry={nodes.light.geometry} material={materials.Lamp} scale={5} />
+      <mesh geometry={nodes.Table_Lamp_bottom.geometry} material={materials.Porcelain} scale={5} material-color={currentColor} />
+      <mesh geometry={nodes.Table_Lamp_fabric.geometry} material={materials.Fabric} scale={5} />
+      <mesh geometry={nodes.Table_Lamp_fabric_rim.geometry} material={materials['Old White Metal']} scale={5} />
     </group>
   )
 }
 
-useGLTF.preload('/lamp1.glb')
+useGLTF.preload('/model/lamp1-transformed.glb')
