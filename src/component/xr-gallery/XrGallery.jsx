@@ -1,5 +1,5 @@
 import { OrbitControls } from "@react-three/drei";
-import { useThree, useFrame } from "@react-three/fiber";
+import { useThree } from "@react-three/fiber";
 import { Interactive, useHitTest, useXR } from "@react-three/xr";
 import { Fragment, useEffect, useRef, useState } from "react";
 import Chair1 from '../../assets/Models/Chair1'
@@ -8,16 +8,20 @@ import Lamp1 from '../../assets/Models/Lamp1'
 import Lamp2 from '../../assets/Models/Lamp2'
 import Sofa1 from '../../assets/Models/Sofa1'
 import Sofa2 from '../../assets/Models/sofa2'
+import Sofa3 from '../../assets/Models/sofa3'
+import Sofa4 from '../../assets/Models/sofa4'
+import Sofa5 from '../../assets/Models/sofa5'
 import Table1 from '../../assets/Models/Table1'
 import Table2 from '../../assets/Models/Table2'
+import Table3 from '../../assets/Models/Table3'
+import Table4 from '../../assets/Models/Table4'
+import Kitchen1 from '../../assets/Models/Kitchen1'
+
 import { useCharacterAnimations } from '../../contexts/ModelControl'
 import { useGesture } from '@use-gesture/react'
-import Model from "../../assets/Models/Table2";
 
 const XrOverlay = () => {
   const reticleRef = useRef();
-  const [isModelPresent,SetModelPresent]=useState(false);
-  const [CurrentDrag,SetCurrentDrag]=useState(0);
   const [models, setModels] = useState([]);
   const { currentModelName } = useCharacterAnimations();
   const { isPresenting } = useXR();
@@ -57,24 +61,7 @@ const XrOverlay = () => {
     let id = Date.now();
     setModels([{ position, id }]);
   };
-  // const takesnap = () => {
-  //   const canvas = document.querySelector('canvas');
-    
-  //   if (!canvas) return;
   
-  //   // Introduce a slight delay before capturing the canvas content
-  //   setTimeout(() => {
-  //     requestAnimationFrame(() => {
-  //       const img = canvas.toDataURL("image/jpeg");
-  //       const a = document.createElement("a");
-  //       a.href = img;
-  //       a.download = "cavas.jpeg";
-  //       a.click();
-  //     });
-  //   }, 100); // Adjust the delay as needed
-  // };
-  
-
   const bind = useGesture(
     {
       onPinch: ({ delta }) => {
@@ -93,22 +80,8 @@ const XrOverlay = () => {
           ]);
           prevOffsetRef.current = offset[0];
         }
-        // const dragValue=Math.abs(offset[1])-CurrentDrag;
-        // if(Math.abs(dragValue)>200 && models.length)
-        // {
-        //   SetCurrentDrag(0);
-        //   takesnap()
-
-        // }
-        // else
-        // {
-        //   SetCurrentDrag(0);
-        // }
-        // console.log("x=", offset[0], "y=", offset[1]);
       },
-      // onTap: ({ event }) => {
-      //   console.log(event)
-      // }
+      
     },
     {
       target: window,
@@ -157,6 +130,22 @@ const XrOverlay = () => {
                   scale={[zoom * 0.7, zoom * 0.7, zoom * 0.7]}
                 />
               )}
+              {currentModelName === "table3" && (
+                <Table3
+                  table3={isPresenting}
+                  position={position}
+                  rotation={rotation}
+                  scale={[zoom * 0.07, zoom * 0.07, zoom * 0.07]}
+                />
+              )}
+              {currentModelName === "table4" && (
+                <Table4
+                  table4={isPresenting}
+                  position={position}
+                  rotation={rotation}
+                  scale={[zoom*0.5 , zoom*0.5 , zoom*0.5 ]}
+                />
+              )}
               {currentModelName === "sofa1" && (
                 <Sofa1
                   sofa1={isPresenting}
@@ -173,13 +162,37 @@ const XrOverlay = () => {
                   scale={[zoom * 0.5, zoom * 0.5, zoom * 0.5]}
                 />
               )}
+              {currentModelName === "sofa3" && (
+                <Sofa3
+                  sofa3={isPresenting}
+                  position={position}
+                  rotation={rotation}
+                  scale={[zoom * 0.3, zoom * 0.3, zoom * 0.3]}
+                />
+              )}
+              {currentModelName === "sofa4" && (
+                <Sofa4
+                  sofa4={isPresenting}
+                  position={position}
+                  rotation={rotation}
+                  scale={[zoom * 0.001, zoom * 0.001, zoom * 0.001]}
+                />
+              )}
+              {currentModelName === "sofa5" && (
+                <Sofa5
+                  sofa5={isPresenting}
+                  position={position}
+                  rotation={rotation}
+                  scale={[zoom * 0.5, zoom * 0.5, zoom * 0.5]}
+                />
+              )}
               {currentModelName === "lamp1" && (
                 <Lamp1
                   lamp1={isPresenting}
 
                   position={position}
                   rotation={rotation}
-                  scale={[zoom * 0.7, zoom * 0.7, zoom * 0.7]}
+                  scale={[zoom * 0.15, zoom * 0.15, zoom * 0.15]}
                 />
               )}
               {currentModelName === "lamp2" && (
@@ -189,6 +202,15 @@ const XrOverlay = () => {
                   position={position}
                   rotation={rotation}
                   scale={[zoom * 0.0075, zoom * 0.0075, zoom * 0.0075]}
+                />
+              )}
+              {currentModelName === "kitchen1" && (
+                <Kitchen1
+                  kitchen1={isPresenting}
+
+                  position={position}
+                  rotation={rotation}
+                  scale={[zoom*0.1 , zoom*0.1 , zoom*0.1 ]}
                 />
               )}
             </Fragment>
@@ -216,17 +238,35 @@ const XrOverlay = () => {
       {!isPresenting && currentModelName === "table2" && (
         <Table2 table2={isPresenting} />
       )}
+      {!isPresenting && currentModelName === "table3" && (
+        <Table3 table3={isPresenting} />
+      )}
+      {!isPresenting && currentModelName === "table4" && (
+        <Table4 table4={isPresenting} />
+      )}
       {!isPresenting && currentModelName === "sofa1" && (
         <Sofa1 sofa1={isPresenting} />
       )}
       {!isPresenting && currentModelName === "sofa2" && (
         <Sofa2 sofa2={isPresenting} />
       )}
+      {!isPresenting && currentModelName === "sofa3" && (
+        <Sofa3 sofa3={isPresenting} />
+      )}
+      {!isPresenting && currentModelName === "sofa4" && (
+        <Sofa4 sofa4={isPresenting} />
+      )}
+      {!isPresenting && currentModelName === "sofa5" && (
+        <Sofa5 sofa5={isPresenting} />
+      )}
       {!isPresenting && currentModelName === "lamp1" && (
         <Lamp1 lamp1={isPresenting} />
       )}
       {!isPresenting && currentModelName === "lamp2" && (
         <Lamp2 lamp2={isPresenting} />
+      )}
+      {!isPresenting && currentModelName === "kitchen1" && (
+        <Kitchen1 kitchen1={isPresenting} />
       )}
 
       {/* Gesture binding */}

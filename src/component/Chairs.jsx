@@ -6,10 +6,8 @@ import { TbAugmentedReality } from "react-icons/tb";
 const Chair = () => {
 
     return (
-        <>
-            <div className="ornament-head">
-
-            </div>
+        
+            
             <div className="furniture-head">
                 {
                     chairs.map((furniture) => {
@@ -43,7 +41,7 @@ const Chair = () => {
                     })
                 }
             </div>
-        </>
+        
     )
 }
 export default Chair;

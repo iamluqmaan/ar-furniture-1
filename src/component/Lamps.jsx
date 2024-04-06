@@ -7,10 +7,8 @@ const Lamp = () => {
 
 
     return (
-        <>
-        <div className="ornament-head">
-                
-            </div>
+        
+        
         <div className="furniture-head">
             {
                 Lamps.map((furniture) => {
@@ -44,7 +42,7 @@ const Lamp = () => {
                 })
             }
         </div>
-        </>
+        
     )
 }
 export default Lamp;

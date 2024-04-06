@@ -1,9 +1,9 @@
-import { Tables } from '../data'
+import { kitchen } from '../data'
 import {Link} from 'react-router-dom'
 
 import { TbAugmentedReality } from "react-icons/tb";
 
-const Table = () => {
+const Kitchen = () => {
 
 
     return (
@@ -11,7 +11,7 @@ const Table = () => {
         
         <div className="furniture-head">
             {
-                Tables.map((furniture) => {
+                kitchen.map((furniture) => {
                     return (
                         
                         <div key={furniture.id} className='furniture-info'>
@@ -45,4 +45,4 @@ const Table = () => {
         
     )
 }
-export default Table;
+export default Kitchen;

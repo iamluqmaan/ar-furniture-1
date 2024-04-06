@@ -23,6 +23,21 @@ export const chairs = [
     
    
   ];
+export const kitchen = [
+    {
+      id: 1,
+      name:'Kitchen 1',
+      desc:'Modern Kitchen',
+      price:'$212',
+      image: '/images/kitchen1.png',  
+      link3D: '/kitchen1',
+      
+
+    },
+    
+    
+   
+  ];
   
   export const Tables = [
     
@@ -41,6 +56,22 @@ export const chairs = [
       price:'$25',
       image: '/images/table2.png',  
       link3D: '/table2',
+    },
+    {
+      id: 3,
+      desc:'Royal Table',
+      name:'Table 3',
+      price:'$25',
+      image: '/images/table3.png',  
+      link3D: '/table3',
+    },
+    {
+      id: 4,
+      desc:'Office Table',
+      name:'Table 4',
+      price:'$25',
+      image: '/images/table4.png',  
+      link3D: '/table4',
     },
     
   ];
@@ -61,6 +92,33 @@ export const chairs = [
       price:'$10',
       image: '/images/sofa2.png',  
       link3D: '/sofa2',
+
+    },
+    {
+      id: 3,
+      desc:'Oval Sofa',
+      name:'Sofa 3',
+      price:'$10',
+      image: '/images/sofa3.png',  
+      link3D: '/sofa3',
+
+    },
+    {
+      id: 4,
+      desc:'Sofa Web',
+      name:'Sofa 4',
+      price:'$10',
+      image: '/images/sofa4.png',  
+      link3D: '/sofa4',
+
+    },
+    {
+      id: 5,
+      desc:'Modern Sofa',
+      name:'Sofa 5',
+      price:'$70',
+      image: '/images/sofa5.png',  
+      link3D: '/sofa5',
 
     },
     

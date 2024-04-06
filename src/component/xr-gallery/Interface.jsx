@@ -11,9 +11,10 @@ const Interface = forwardRef((props, ref) => {
       <div
         ref={ref}
         style={{ position: "absolute", top: 0, left: 0, touchAction: "none" }}
-
+      className="divLeva"
       >
         <Leva
+        className="leva"
           style={{
             position: "absolute",
             zIndex: "1000",

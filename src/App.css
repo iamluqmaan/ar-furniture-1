@@ -47,21 +47,17 @@ canvas
   width: 100%;
   height: 600px;
 }
-.tags
-{
-  
-    margin-top:30px ;
-    margin-left:20px ;
+.tags {
     display: grid;
-    grid-template-columns:100px 100px 100px  100px 100px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
     gap: 30px;
     overflow: scroll;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
-
 }
+
 .tags::-webkit-scrollbar {
-    width: 1px;
+    width: 10px;
   }
   
   .tags::-webkit-scrollbar-thumb {
@@ -72,6 +68,7 @@ canvas
     background-color: transparent; 
   }
   
+
 button
 {
     font-family: 'Antic Didone', sans-serif;
@@ -91,7 +88,7 @@ button
   
   .furniture-head {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
   }
   
@@ -188,7 +185,7 @@ and (max-width: 2000px)
   .tags
   {
     justify-content: center;
-    grid-template-columns: 150px 150px 150px 150px 150px;
+    grid-template-columns: 150px 150px 150px 150px 150px 150px;
   }
   .ornament-head {
     display: flex;
@@ -205,26 +202,9 @@ and (max-width: 2000px)
     margin: 0; 
     font-size: 52px;
     margin-top:10px ;
+    
   }
-  .furniture-logo 
-  {
-    margin-left:50px ;
-  }
-  .furniture-logo img
-  {
-    height: 270px;
-    width: 200px;
-  }
-  .back-btn
-  {
-    width: 200px;
-    height: 100px;
-  }
-  .furniture-info
-  {
-    height: 530px;
-    width: 300px;
-  }
+  
   
 #overlay-content {
   position: absolute;
@@ -234,25 +214,9 @@ and (max-width: 2000px)
   pointer-events: none;
 }
 
- button important
-{
-  display: none;
-}
 
 
-  h2
-  {
-    font-size: 28px;
-    font-weight: bold;
-  }
-  p{
-    font-size: 23px;
-  }
-  .logo img
-{
-    width: 250px;
-    height: 250px;
-}
+ 
   .controls a
   {
     font-size: 30px;
@@ -262,9 +226,12 @@ and (max-width: 2000px)
   {
     width: 100%;
   }
+
+  
 }
 
   @media (max-width: 768px) {
+  
     .furniture-info {
       flex-direction: column; 
       width: 90%;
@@ -296,6 +263,7 @@ and (max-width: 2000px)
     {
         width: 600px;
     }
+    
 }
  
 
@@ -303,3 +271,4 @@ and (max-width: 2000px)
 {
   cursor: pointer;
 }
+

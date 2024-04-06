@@ -12,7 +12,7 @@ export const CharacterAnimationsProvider = (props) => {
   const { Color } = useControls({
     Color: {
       options: {
-        "White": "#ffffff",
+        "Original": "#ffffff",
         "Blue": "#0B60B0",
         "Green": "#65B741",
         "Orange": "#EE7214",
@@ -24,14 +24,20 @@ export const CharacterAnimationsProvider = (props) => {
     Model: {
       value: currentModelName,
       options: {
+        "Sofa 1": "sofa1",
+        "Sofa 2": "sofa2",
+        "Sofa 3": "sofa3",
+        "Sofa 4": "sofa4",
+        "Sofa 5": "sofa5",
         "Chair 1": "chair1",
         "Chair 2": "chair2",
         "Table 1": "table1",
         "Table 2": "table2",
-        "Sofa 1": "sofa1",
-        "Sofa 2": "sofa2",
+        "Table 3": "table3",
+        "Table 4": "table4",
         "Lamp 1": "lamp1",
         "Lamp 2": "lamp2",
+        "Kitchen 1": "kitchen1",
       },
       onChange: (value) => {
         setCurrentModelName(value);
