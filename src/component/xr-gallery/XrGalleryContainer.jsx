@@ -5,6 +5,7 @@ import { CharacterAnimationsProvider } from "../../contexts/ModelControl";
 import XrGallery from "./XrGallery";
 import { Environment } from "@react-three/drei";
 import Interface from "./Interface";
+import { Link } from 'react-router-dom'
 import { Suspense } from "react";
 const XrGalleryContainer = () => {
 
@@ -30,14 +31,17 @@ const XrGalleryContainer = () => {
 
       <Canvas style={{ touchAction: "none" }}>
         <ambientLight intensity={1} />
-        
+
         <XR>
-        <Suspense fallback={null}>
-          <XrGallery />
+          <Suspense fallback={null}>
+            <XrGallery />
           </Suspense>
         </XR>
         <Environment preset="sunset" />
       </Canvas>
+      <Link to='/'>
+       <button className="back-btn" style={{ position: 'relative' }}>Back</button>
+      </Link>
     </CharacterAnimationsProvider>
   );
 };

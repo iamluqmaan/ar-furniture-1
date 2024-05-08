@@ -73,6 +73,14 @@ export const kitchen = [
       image: '/images/table4.png',  
       link3D: '/table4',
     },
+    {
+      id: 5,
+      desc:'Luxury Table',
+      name:'Table 5',
+      price:'$20',
+      image: '/images/table5.png',  
+      link3D: '/table5',
+    },
     
   ];
   export const Sofa = [
@@ -121,6 +129,26 @@ export const kitchen = [
       link3D: '/sofa5',
 
     },
+    
+    {
+      id: 6,
+      desc:'Sofa Set',
+      name:'Sofa 6',
+      price:'$170',
+      image: '/images/sofa6.png',  
+      link3D: '/sofa6',
+
+    },
+    
+    // {
+    //   id: 7,
+    //   desc:'Modern Sofa',
+    //   name:'Sofa 7',
+    //   price:'$70',
+    //   image: '/images/sofa5.png',  
+    //   link3D: '/sofa7',
+
+    // },
     
     
   ];

@@ -9,7 +9,7 @@ const Table = () => {
     return (
         
         
-        <div className="furniture-head">
+        <>
             {
                 Tables.map((furniture) => {
                     return (
@@ -41,7 +41,7 @@ const Table = () => {
                     )
                 })
             }
-        </div>
+        </>
         
     )
 }

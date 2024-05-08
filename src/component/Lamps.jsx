@@ -9,7 +9,7 @@ const Lamp = () => {
     return (
         
         
-        <div className="furniture-head">
+        <>
             {
                 Lamps.map((furniture) => {
                     return (
@@ -41,7 +41,7 @@ const Lamp = () => {
                     )
                 })
             }
-        </div>
+        </>
         
     )
 }

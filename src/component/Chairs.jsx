@@ -8,7 +8,7 @@ const Chair = () => {
     return (
         
             
-            <div className="furniture-head">
+            <>
                 {
                     chairs.map((furniture) => {
                         return (
@@ -40,7 +40,7 @@ const Chair = () => {
                         )
                     })
                 }
-            </div>
+            </>
         
     )
 }

@@ -11,10 +11,13 @@ import Sofa2 from '../../assets/Models/sofa2'
 import Sofa3 from '../../assets/Models/sofa3'
 import Sofa4 from '../../assets/Models/sofa4'
 import Sofa5 from '../../assets/Models/sofa5'
+import Sofa6 from '../../assets/Models/sofa6'
+import Sofa7 from '../../assets/Models/sofa7'
 import Table1 from '../../assets/Models/Table1'
 import Table2 from '../../assets/Models/Table2'
 import Table3 from '../../assets/Models/Table3'
 import Table4 from '../../assets/Models/Table4'
+import Table5 from '../../assets/Models/Table5'
 import Kitchen1 from '../../assets/Models/Kitchen1'
 
 import { useCharacterAnimations } from '../../contexts/ModelControl'
@@ -23,14 +26,14 @@ import { useGesture } from '@use-gesture/react'
 const XrOverlay = () => {
   const reticleRef = useRef();
   const [models, setModels] = useState([]);
-  const { currentModelName } = useCharacterAnimations();
+  const { currentModelName, SetPresenting } = useCharacterAnimations();
   const { isPresenting } = useXR();
   const prevIsPresentingRef = useRef(null);
   useEffect(() => {
     if (prevIsPresentingRef.current && !isPresenting) {
       window.location.reload();
     }
-
+    SetPresenting(isPresenting)
     prevIsPresentingRef.current = isPresenting;
   }, [isPresenting]);
 
@@ -146,6 +149,14 @@ const XrOverlay = () => {
                   scale={[zoom*0.5 , zoom*0.5 , zoom*0.5 ]}
                 />
               )}
+              {currentModelName === "table5" && (
+                <Table5
+                  table5={isPresenting}
+                  position={position}
+                  rotation={rotation}
+                  scale={[zoom*0.05 , zoom*0.05 , zoom*0.05 ]}
+                />
+              )}
               {currentModelName === "sofa1" && (
                 <Sofa1
                   sofa1={isPresenting}
@@ -181,6 +192,22 @@ const XrOverlay = () => {
               {currentModelName === "sofa5" && (
                 <Sofa5
                   sofa5={isPresenting}
+                  position={position}
+                  rotation={rotation}
+                  scale={[zoom * 0.5, zoom * 0.5, zoom * 0.5]}
+                />
+              )}
+              {currentModelName === "sofa6" && (
+                <Sofa6
+                  sofa6={isPresenting}
+                  position={position}
+                  rotation={rotation}
+                  scale={[zoom * 0.5, zoom * 0.5, zoom * 0.5]}
+                />
+              )}
+              {currentModelName === "sofa7" && (
+                <Sofa7
+                  sofa7={isPresenting}
                   position={position}
                   rotation={rotation}
                   scale={[zoom * 0.5, zoom * 0.5, zoom * 0.5]}
@@ -244,6 +271,9 @@ const XrOverlay = () => {
       {!isPresenting && currentModelName === "table4" && (
         <Table4 table4={isPresenting} />
       )}
+      {!isPresenting && currentModelName === "table5" && (
+        <Table5 table5={isPresenting} />
+      )}
       {!isPresenting && currentModelName === "sofa1" && (
         <Sofa1 sofa1={isPresenting} />
       )}
@@ -258,6 +288,12 @@ const XrOverlay = () => {
       )}
       {!isPresenting && currentModelName === "sofa5" && (
         <Sofa5 sofa5={isPresenting} />
+      )}
+      {!isPresenting && currentModelName === "sofa6" && (
+        <Sofa6 sofa6={isPresenting} />
+      )}
+      {!isPresenting && currentModelName === "sofa7" && (
+        <Sofa7 sofa7={isPresenting} />
       )}
       {!isPresenting && currentModelName === "lamp1" && (
         <Lamp1 lamp1={isPresenting} />

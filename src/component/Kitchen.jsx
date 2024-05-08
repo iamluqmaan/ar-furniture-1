@@ -9,7 +9,7 @@ const Kitchen = () => {
     return (
         
         
-        <div className="furniture-head">
+        <>
             {
                 kitchen.map((furniture) => {
                     return (
@@ -41,7 +41,7 @@ const Kitchen = () => {
                     )
                 })
             }
-        </div>
+        </>
         
     )
 }

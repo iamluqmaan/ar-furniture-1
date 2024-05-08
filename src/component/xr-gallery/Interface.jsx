@@ -1,33 +1,32 @@
 import { forwardRef } from "react";
 import { Leva } from "leva";
-
+import { useCharacterAnimations } from '../../contexts/ModelControl'
+import { MdArrowBack } from "react-icons/md";
 const Interface = forwardRef((props, ref) => {
-  const titleBarPosition = { x: -25, y: 0 };
+  const { IsPresenting } = useCharacterAnimations();
 
-  
+  const handleClick = () => {
+    window.location.reload();
+  }
+
 
   return (
     <>
       <div
         ref={ref}
-        style={{ position: "absolute", top: 0, left: 0, touchAction: "none" }}
-      className="divLeva"
+        style={{ position: "absolute", top: 0, left: 0, touchAction: "none", width: '10px' }}
       >
         <Leva
-        className="leva"
-          style={{
-            position: "absolute",
-            zIndex: "1000",
-          }}
+
           collapsed
           titleBar={{
-            position: titleBarPosition,
             drag: false,
           }}
 
         />
-
+        {IsPresenting && <MdArrowBack onClick={handleClick} className="ar-back-btn" style={{ position: 'absolute' }} size={'60px'} />}
       </div>
+
 
     </>
 
