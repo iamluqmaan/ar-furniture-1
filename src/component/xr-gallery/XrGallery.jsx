@@ -19,6 +19,7 @@ import Table3 from '../../assets/Models/Table3'
 import Table4 from '../../assets/Models/Table4'
 import Table5 from '../../assets/Models/Table5'
 import Kitchen1 from '../../assets/Models/Kitchen1'
+import Elevator1 from '../../assets/Models/Elevator1'
 
 import { useCharacterAnimations } from '../../contexts/ModelControl'
 import { useGesture } from '@use-gesture/react'
@@ -240,6 +241,15 @@ const XrOverlay = () => {
                   scale={[zoom*0.1 , zoom*0.1 , zoom*0.1 ]}
                 />
               )}
+              {currentModelName === "elevator1" && (
+                <Elevator1
+                  elevator1={isPresenting}
+
+                  position={position}
+                  rotation={rotation}
+                  scale={[zoom*0.2 , zoom*0.2 , zoom*0.2 ]}
+                />
+              )}
             </Fragment>
           );
         })}
@@ -303,6 +313,9 @@ const XrOverlay = () => {
       )}
       {!isPresenting && currentModelName === "kitchen1" && (
         <Kitchen1 kitchen1={isPresenting} />
+      )}
+      {!isPresenting && currentModelName === "elevator1" && (
+        <Elevator1 elevator1={isPresenting} />
       )}
 
       {/* Gesture binding */}

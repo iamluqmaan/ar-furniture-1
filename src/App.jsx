@@ -27,6 +27,7 @@ function App() {
         <Route path='/lamp1' element={<Model />}/>
         <Route path='/lamp2' element={<Model />}/>
         <Route path='/kitchen1' element={<Model />}/>
+        <Route path='/elevator1' element={<Model />}/>
       </Routes>
     </>
   )

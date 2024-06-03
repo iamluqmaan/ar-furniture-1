@@ -23,6 +23,17 @@ export const chairs = [
     
    
   ];
+  export const Elevators = [
+    {
+      id: 1,
+      name:'Elevator 1',
+      desc:'Modern Elevator',
+      price:'$12',
+      image: '/images/elevator1.png',
+      link3D: '/elevator1',
+      
+    }
+  ]
 export const kitchen = [
     {
       id: 1,

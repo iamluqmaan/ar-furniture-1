@@ -5,13 +5,14 @@ import Sofa from './Sofa.jsx';
 import Lamp from './Lamps.jsx';
 import Kitchen from './Kitchen.jsx';
 import { useState } from 'react';
-
+import Elevator from './Elevator.jsx';
 const Home = () => {
     const [chair, setchair] = useState(false);
     const [table, settable] = useState(false);
     const [lamp, setlamp] = useState(false);
     const [sofa, setsofa] = useState(false);
     const [kitchen, setkitchen] = useState(false);
+    const [elevator, setElevator] = useState(false);
     const [All, setAll] = useState(true);
 
     const showAll = () => {
@@ -30,6 +31,8 @@ const Home = () => {
         setsofa(false);
         setlamp(false);
         setkitchen(false);
+        setElevator(false);
+
 
     };
     const showlamp = () => {
@@ -39,6 +42,8 @@ const Home = () => {
         setsofa(false);
         setlamp(true);
         setkitchen(false);
+        setElevator(false);
+
 
     };
     const showsofa = () => {
@@ -48,6 +53,8 @@ const Home = () => {
         setsofa(true);
         setlamp(false);
         setkitchen(false);
+        setElevator(false);
+
 
     };
 
@@ -58,6 +65,8 @@ const Home = () => {
         setsofa(false);
         setlamp(false);
         setkitchen(false);
+        setElevator(false);
+
 
     };
     const showkitchen = () => {
@@ -67,6 +76,19 @@ const Home = () => {
         setsofa(false);
         setlamp(false);
         setkitchen(true);
+        setElevator(false);
+
+
+    };
+    const showelevator = () => {
+        setAll(false);
+        setchair(false);
+        settable(false);
+        setsofa(false);
+        setlamp(false);
+        setkitchen(false);
+        setElevator(true);
+
 
     };
 
@@ -81,13 +103,15 @@ const Home = () => {
                     <button onClick={showtable}>Tables</button>
                     <button onClick={showlamp}>Lamps</button>
                     <button onClick={showkitchen}>Kitchens</button>
+                    <button onClick={showelevator}>Elevators</button>
                 </div>
             </div>
 
             <div className="Furniture">
                 <div className="ornament-head">
                     <div>
-                        <h1>{All ? 'All' : sofa ? 'Sofas' : table ? 'Tables' : lamp ? 'Lamps' : kitchen ? 'Kitchens' : 'Chairs'}</h1>
+                        <h1>{All ? 'All' : sofa ? 'Sofas' : table ? 'Tables' : lamp ? 'Lamps' : kitchen ? 
+                        'Kitchens' : elevator?'Elevator': 'Chairs'}</h1>
                     </div>
                 </div>
                <div className='allItem'>
@@ -98,12 +122,14 @@ const Home = () => {
                         <Tables />
                         <Lamp />
                         <Kitchen />
+                        <Elevator />
                     </>}
                 {chair && <Chair />}
                 {table && <Tables />}
                 {lamp && <Lamp />}
                 {sofa && <Sofa />}
                 {kitchen && <Kitchen />}
+                {elevator && <Elevator />}
                </div>
             </div>
         </>
