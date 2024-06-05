@@ -1,121 +1,119 @@
+import React, { useState } from 'react';
 import Header from './header.jsx';
+import Hero from './Hero.jsx';
 import Chair from './Chairs.jsx';
 import Tables from './Tables.jsx';
 import Sofa from './Sofa.jsx';
 import Lamp from './Lamps.jsx';
 import Kitchen from './Kitchen.jsx';
-import { useState } from 'react';
 import Elevator from './Elevator.jsx';
+import '../Home.css'
+
 const Home = () => {
-    const [chair, setchair] = useState(false);
-    const [table, settable] = useState(false);
-    const [lamp, setlamp] = useState(false);
-    const [sofa, setsofa] = useState(false);
-    const [kitchen, setkitchen] = useState(false);
+    const [chair, setChair] = useState(false);
+    const [table, setTable] = useState(false);
+    const [lamp, setLamp] = useState(false);
+    const [sofa, setSofa] = useState(false);
+    const [kitchen, setKitchen] = useState(false);
     const [elevator, setElevator] = useState(false);
-    const [All, setAll] = useState(true);
+    const [all, setAll] = useState(true);
 
     const showAll = () => {
         setAll(true);
-        setchair(false);
-        settable(false);
-        setsofa(false);
-        setlamp(false);
-        setkitchen(false);
-    };
-
-    const showchair = () => {
-        setAll(false);
-        setchair(true);
-        settable(false);
-        setsofa(false);
-        setlamp(false);
-        setkitchen(false);
+        setChair(false);
+        setTable(false);
+        setSofa(false);
+        setLamp(false);
+        setKitchen(false);
         setElevator(false);
-
-
     };
-    const showlamp = () => {
+
+    const showChair = () => {
         setAll(false);
-        setchair(false);
-        settable(false);
-        setsofa(false);
-        setlamp(true);
-        setkitchen(false);
+        setChair(true);
+        setTable(false);
+        setSofa(false);
+        setLamp(false);
+        setKitchen(false);
         setElevator(false);
-
-
     };
-    const showsofa = () => {
+
+    const showLamp = () => {
         setAll(false);
-        setchair(false);
-        settable(false);
-        setsofa(true);
-        setlamp(false);
-        setkitchen(false);
+        setChair(false);
+        setTable(false);
+        setSofa(false);
+        setLamp(true);
+        setKitchen(false);
         setElevator(false);
-
-
     };
 
-    const showtable = () => {
+    const showSofa = () => {
         setAll(false);
-        setchair(false);
-        settable(true);
-        setsofa(false);
-        setlamp(false);
-        setkitchen(false);
+        setChair(false);
+        setTable(false);
+        setSofa(true);
+        setLamp(false);
+        setKitchen(false);
         setElevator(false);
-
-
     };
-    const showkitchen = () => {
+
+    const showTable = () => {
         setAll(false);
-        setchair(false);
-        settable(false);
-        setsofa(false);
-        setlamp(false);
-        setkitchen(true);
+        setChair(false);
+        setTable(true);
+        setSofa(false);
+        setLamp(false);
+        setKitchen(false);
         setElevator(false);
-
-
     };
-    const showelevator = () => {
+
+    const showKitchen = () => {
         setAll(false);
-        setchair(false);
-        settable(false);
-        setsofa(false);
-        setlamp(false);
-        setkitchen(false);
+        setChair(false);
+        setTable(false);
+        setSofa(false);
+        setLamp(false);
+        setKitchen(true);
+        setElevator(false);
+    };
+
+    const showElevator = () => {
+        setAll(false);
+        setChair(false);
+        setTable(false);
+        setSofa(false);
+        setLamp(false);
+        setKitchen(false);
         setElevator(true);
-
-
     };
 
     return (
         <>
-            <Header />
-            <div className='tags-container'>
-                <div className='tags'>
-                    <button onClick={showAll}>All</button>
-                    <button onClick={showsofa}>Sofas</button>
-                    <button onClick={showchair}>Chairs</button>
-                    <button onClick={showtable}>Tables</button>
-                    <button onClick={showlamp}>Lamps</button>
-                    <button onClick={showkitchen}>Kitchens</button>
-                    <button onClick={showelevator}>Elevators</button>
+            
+           <Hero />
+           <Header />
+            <div className="tags-container">
+                <div className="tags">
+                    <button onClick={showAll}>All products</button>
+                    <button onClick={showSofa}>Sofas</button>
+                    <button onClick={showChair}>Chairs</button>
+                    <button onClick={showTable}>Tables</button>
+                    <button onClick={showLamp}>Lamps</button>
+                    <button onClick={showKitchen}>Kitchens</button>
+                    <button onClick={showElevator}>Elevators</button>
                 </div>
             </div>
 
             <div className="Furniture">
                 <div className="ornament-head">
                     <div>
-                        <h1>{All ? 'All' : sofa ? 'Sofas' : table ? 'Tables' : lamp ? 'Lamps' : kitchen ? 
+                        <h1>{all ? 'All' : sofa ? 'Sofas' : table ? 'Tables' : lamp ? 'Lamps' : kitchen ? 
                         'Kitchens' : elevator?'Elevator': 'Chairs'}</h1>
                     </div>
                 </div>
                <div className='allItem'>
-               {All &&
+               {all &&
                     <>
                         <Sofa />
                         <Chair />
@@ -135,5 +133,4 @@ const Home = () => {
         </>
     );
 };
-
 export default Home;

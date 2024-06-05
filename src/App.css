@@ -18,8 +18,8 @@ body
 }
 .logo img
 {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 .profile
@@ -90,6 +90,7 @@ button
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    
   }
   
   .furniture-info {
@@ -253,7 +254,14 @@ canvas
 }
 
   @media (max-width: 768px) {
-    
+    .tags {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+      gap: 20px;
+      overflow: scroll;
+      scrollbar-width: thin;
+      scrollbar-color: transparent transparent;
+  }
   .back-btn,.ar-back-btn
   {
     display: none;

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap');
 body
 {
-
+    margin: 0;
     background-color: #EDEDED;
     font-family: 'Antic Didone', sans-serif;
     font-weight: 600;
@@ -104,9 +104,7 @@ button
   }
   h1
   {
-    background-image: linear-gradient( #e916d7, #4207f3,#950cf0);
-    color: transparent;
-    background-clip: text;
+    color:  rgb(17, 158, 213);
   }
   .basic-desc
   {
@@ -238,7 +236,21 @@ and (max-width: 1486px)
   }
 }
 
-  @media (max-width: 768px) {
+  @media (max-width: 850px) {
+    .tags
+      {
+          margin-top:20px ;
+          margin-left:20px ;
+          display: grid;
+          grid-template-columns:100px 100px 100px  100px 100px;
+          gap: 30px;
+          overflow: scroll;
+          scrollbar-width: thin;
+          scrollbar-color: transparent transparent;
+          font-size: .5;
+          align-items: center;
+      }
+      
     .furniture-info {
       flex-direction: column; 
       width: 90%;
@@ -265,6 +277,17 @@ and (max-width: 1486px)
     .search-filter img
     {
         width: 600px;
+    }
+}
+  @media only screen
+  and (min-device-width: 100px)
+  and (max-device-width: 850px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .tags button{
+      display: flex;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      justify-content:center ;
     }
 }
   

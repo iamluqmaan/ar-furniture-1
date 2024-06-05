@@ -1,13 +1,12 @@
 version: '3.8'
 services:
   frontend:
-    build: ./
+    build: 
+      context: .
+      dockerfile: Dockerfile
     container_name: furniture_c
     ports:
       - '3000:3000'
     volumes:
-      - C:\Users\ankur\OneDrive\Desktop\astarix\astarixFurniture:/app
+      - C:\Users\User\Desktop\AR-project\ar-furniture:/app
       - /app/node_modules
-        
-    
-    

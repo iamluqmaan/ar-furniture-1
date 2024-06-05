@@ -1,0 +1,245 @@
+.home-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+    color: white; /* Ensure text is visible */
+}
+
+.cta-section {
+    max-width: 50%;
+    margin-top: 2rem;
+}
+
+.cta-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: skyblue;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    color: whitesmoke;
+    padding:2rem 0;
+    line-height: 1.5em;
+    letter-spacing: .1em;
+}
+
+.cta-button {
+    color: white;
+    padding: 1rem 1rem 2rem 1rem;
+    background: skyblue;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 2rem;
+    letter-spacing: .1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: rgb(17, 158, 213);
+    color: #fff;
+}
+
+.avatar {
+    
+    border-radius: 50%;
+}
+
+.image-section {
+    max-width: 45%;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+}
+
+.tags-container {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.tags button {
+    background-color: transparent;
+    border: 2px solid #000;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tags button:hover {
+    background-color: rgb(17, 158, 213);
+    color: #fff;
+}
+
+.furniture {
+    padding: 2rem;
+}
+
+.ornament-head h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.all-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+@media only screen and (min-device-width:120px) and (max-device-width:740px) {
+    .cta-section {
+        max-width: 100%;
+        padding: .5rem 0;
+        margin-top: 0;
+    }
+    .cta-section h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: skyblue;
+    }
+    .avatar{
+        display: none;
+    }
+    
+    .cta-section p {
+        font-size: .8rem;
+        margin: 1rem 0;
+        color: whitesmoke;
+        padding:1rem 0;
+        line-height: 1.5em;
+        letter-spacing: .1em;
+    }
+    
+    .cta-button {
+        color: white;
+        padding: 1rem 1rem 2rem 1rem;
+        background: skyblue;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 1rem;
+        letter-spacing: .1;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .home-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 50vh;
+    }
+}
+@media only screen and (min-device-width:120px) and (max-device-width:740px) and (min-device-height:100px) and (max-device-height:600px) {
+    .cta-section h1 {
+        font-size: 1rem;
+        font-weight: bold;
+        color: skyblue;
+    }
+    .avatar{
+        display: none;
+    }
+    
+    .cta-section p {
+        font-size: .6rem;
+        margin: 1rem 0;
+        color: whitesmoke;
+        padding:1rem 0;
+        line-height: 1.5em;
+        letter-spacing: .1em;
+    }
+    
+    .cta-button {
+        color: white;
+        padding: .5rem .5rem 1rem .5rem;
+        background: skyblue;
+        border-radius: 5px;
+        font-size: .6rem;
+        cursor: pointer;
+        
+        letter-spacing: .1;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+}
+@media only screen and (min-device-width:741px) and (max-device-width:900px) {
+    .cta-section {
+        max-width: 60%;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+    .cta-button {
+        margin-top: 1rem;
+    }
+    .home-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 50vh;
+    }
+}
+@media only screen and (min-device-width:1000px) and (max-device-width:1300px) {
+    .cta-section {
+        max-width: 50%;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+    .cta-button {
+        margin-top: 1rem;
+    }
+    .home-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 50vh;
+    }
+}
+@media only screen and (min-device-width:1000px) and (max-device-width:1300px) and (min-device-height:400px) and (max-device-height:900px) {
+    .cta-section {
+        max-width: 50%;
+        padding: 1rem;
+        margin-top: 5rem;
+    }
+    .cta-button {
+        margin-top: 1rem;
+    }
+    .home-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100vh;
+    }
+}
